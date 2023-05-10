@@ -1,7 +1,7 @@
 import {I18nManager} from 'react-native';
 
 import i18next from 'i18next';
-import {initReactI18next} from 'react-i18next';
+import {initReactI18next, useTranslation} from 'react-i18next';
 
 import {defaultLanguage, rtlLanguageCodes} from '../config';
 import useAppStore from '../store';
@@ -61,5 +61,7 @@ export async function handleLanguageChange({
       onError();
     });
 }
+
+export const useAppTranslation = useTranslation;
 
 export default i18next;
