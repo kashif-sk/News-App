@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.1",
+    "i18next": "^22.4.15",
     "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.2",
     "react-native": "0.71.8",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
