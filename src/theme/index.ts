@@ -2,7 +2,24 @@ import {ColorMode, extendTheme} from 'native-base';
 import {darkColorMode, lightColorMode} from '../config';
 import {localStorage} from '../utils/localStorage';
 
-export const customTheme = extendTheme({});
+export const customTheme = extendTheme({
+  colors: {
+    primary: {
+      300: '#6ee7b7',
+      800: '#065f46',
+    },
+    coolGray: {
+      50: '#f9fafb',
+      100: '#f3f4f6',
+    },
+    gray: {
+      300: '#D4D4D8',
+      700: '#3f3f46',
+      800: '#27272a',
+      900: '#18181b',
+    },
+  },
+});
 
 export const colorModeManager = {
   get: async () => {
