@@ -1,10 +1,10 @@
 import React from 'react';
 import {NativeBaseProvider, Box} from 'native-base';
-import {customTheme} from './theme';
+import {colorModeManager, customTheme} from './theme';
 
 export default function App() {
   return (
-    <NativeBaseProvider theme={customTheme}>
+    <NativeBaseProvider colorModeManager={colorModeManager} theme={customTheme}>
       <Box>Hello world</Box>
     </NativeBaseProvider>
   );
