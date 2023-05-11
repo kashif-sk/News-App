@@ -7,6 +7,7 @@ import ErrorBoundary from '../../components/ErrorBoundary';
 import Header from '../../components/Header';
 import TopicSelector from '../../components/TopicSelector';
 import {topics} from '../../config';
+import styles from './styles';
 
 const ArticleList = (): JSX.Element => {
   const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(
@@ -39,7 +40,7 @@ const ArticleList = (): JSX.Element => {
             data={articlesData}
             padding={{base: 2, md: 3}}
             key={numColumnsInList} //to update columns on the fly on web
-            contentContainerStyle={{alignItems: 'center'}}
+            contentContainerStyle={styles.flatlistContentContainer}
             numColumns={numColumnsInList}
             keyExtractor={(_item, index) => String(index)}
             renderItem={({item}) => (
