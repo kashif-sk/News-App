@@ -11,7 +11,7 @@ import {localStorage} from '../utils/localStorage';
 // Languages
 import ar from './locales/ar.json';
 import en from './locales/en.json';
-import {HandleLanguageChangeParams} from './types';
+import {HandleLanguageChangeParams, LanguageType} from './types';
 
 export const resources = {
   en: {translation: en},
@@ -66,6 +66,12 @@ export async function handleLanguageChange({
       onError();
     });
 }
+
+export const isRTL = () => {
+  const language = useAppStore.getState().language;
+  const rtl = rtlLanguageCodes.includes(language as LanguageType);
+  return rtl;
+};
 
 export const useAppTranslation = useTranslation;
 
