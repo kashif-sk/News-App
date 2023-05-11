@@ -21,6 +21,10 @@ const LanguageDropDown = (): JSX.Element => {
     });
   };
 
+  if (language == null) {
+    return <></>;
+  }
+
   return (
     <Box px="3">
       <Select
