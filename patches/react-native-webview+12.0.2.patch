@@ -1,0 +1,16 @@
+diff --git a/node_modules/react-native-webview/lib/WebView.js b/node_modules/react-native-webview/lib/WebView.js
+index a563eb5..cd0f79d 100644
+--- a/node_modules/react-native-webview/lib/WebView.js
++++ b/node_modules/react-native-webview/lib/WebView.js
+@@ -2,10 +2,6 @@ import React from 'react';
+ import { Text, View } from 'react-native';
+ // This "dummy" WebView is to render something for unsupported platforms,
+ // like for example Expo SDK "web" platform.
+-var WebView = function () { return (<View style={{ alignSelf: 'flex-start' }}>
+-		<Text style={{ color: 'red' }}>
+-			React Native WebView does not support this platform.
+-		</Text>
+-	</View>); };
++var WebView = function () { return (null); };
+ export { WebView };
+ export default WebView;
