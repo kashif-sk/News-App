@@ -19,6 +19,18 @@ export const customTheme = extendTheme({
       900: '#18181b',
     },
   },
+  components: {
+    Text: {
+      variants: {
+        text32_700: ({colorMode}: {colorMode: ColorMode}) => ({
+          fontSize: 32,
+          fontWeight: '700',
+          textAlign: 'center',
+          color: colorMode === darkColorMode ? 'coolGray.50' : 'gray.800',
+        }),
+      },
+    },
+  },
 });
 
 export const colorModeManager = {
