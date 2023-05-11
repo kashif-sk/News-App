@@ -27,6 +27,11 @@ export const customTheme = extendTheme({
           fontWeight: '200',
           color: 'gray.800',
         },
+        text14_200: ({colorMode}: {colorMode: ColorMode}) => ({
+          fontSize: 14,
+          fontWeight: '300',
+          color: colorMode === darkColorMode ? 'coolGray.100' : 'gray.800',
+        }),
         text14_400: ({colorMode}: {colorMode: ColorMode}) => ({
           fontSize: 14,
           fontWeight: '400',
