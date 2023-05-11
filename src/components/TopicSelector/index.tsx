@@ -12,7 +12,10 @@ const TopicSelector = ({
       {topics.map(topic => {
         const isSelected = selectedTopic === topic;
         return (
-          <Pressable variant="chip" onPress={() => onTopicChange(topic)}>
+          <Pressable
+            key={topic}
+            variant="chip"
+            onPress={() => onTopicChange(topic)}>
             {isSelected && (
               <CheckIcon color="primary.800" _dark={{color: 'primary.300'}} />
             )}
