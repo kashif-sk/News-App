@@ -1,9 +1,8 @@
 import {create} from 'zustand';
-import {defaultLanguage} from '../config';
 import {AppState} from './types';
 
 const useAppStore = create<AppState>(set => ({
-  language: defaultLanguage,
+  language: null,
   setLanguage: language => set({language}),
 }));
 
