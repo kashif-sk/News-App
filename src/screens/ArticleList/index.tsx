@@ -10,6 +10,7 @@ import {
 } from 'native-base';
 import useFetchArticles from '../../api/useFetchArticles';
 import ArticleDetailsModal from '../../components/ArticleDetailsModal';
+import CardSkeleton from '../../components/CardSkeleton';
 import Card from '../../components/Card';
 import Error from '../../components/Error';
 import ErrorBoundary from '../../components/ErrorBoundary';
@@ -86,28 +87,30 @@ const ArticleList = (): JSX.Element => {
           />
         )}
 
-        {loading ? (
-          <Spinner size="lg" />
-        ) : error !== '' ? (
+        {error !== '' ? (
           <Error errMsg={error} onRetry={onRefresh} />
         ) : (
           <FlatList
-            data={articlesData}
+            data={loading ? loadingData : articlesData}
             padding={{base: 2, md: 3}}
             key={numColumnsInList} //to update columns on the fly on web
             contentContainerStyle={styles.flatlistContentContainer}
             numColumns={numColumnsInList}
             keyExtractor={(_item, index) => String(index)}
-            renderItem={({item}) => (
-              <Card
-                imageUrl={item.urlToImage}
-                publishedDate={item.publishedAt}
-                title={item.title}
-                description={item.description}
-                articleUrl={item.url}
-                readArticle={onPressReadArticle}
-              />
-            )}
+            renderItem={({item}) => {
+              return loading ? (
+                <CardSkeleton />
+              ) : (
+                <Card
+                  imageUrl={item.urlToImage}
+                  publishedDate={item.publishedAt}
+                  title={item.title}
+                  description={item.description}
+                  articleUrl={item.url}
+                  readArticle={onPressReadArticle}
+                />
+              );
+            }}
             ListFooterComponent={_renderListFooter}
             onEndReached={isAllArticlesFetched ? undefined : loadMoreArticles}
             onEndReachedThreshold={0.1}
@@ -124,5 +127,7 @@ const ArticleList = (): JSX.Element => {
     </Box>
   );
 };
+
+const loadingData = new Array(12).fill(0);
 
 export default ArticleList;
