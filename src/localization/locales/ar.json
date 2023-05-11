@@ -3,5 +3,11 @@
   "darkMode": "مظهر داكن",
   "readArticle": "اقرأ المقال",
   "selectLanguage": "اختار اللغة",
-  "defaultError": "حدث خطأ غير متوقع"
+  "defaultError": "حدث خطأ غير متوقع",
+  "apple": "ابل",
+  "meta": "ميتا",
+  "netflix": "نيتفليكس",
+  "google": "جوجل",
+  "twitter": "تويتر",
+  "tesla": "تسلا"
 }

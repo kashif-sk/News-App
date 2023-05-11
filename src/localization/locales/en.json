@@ -3,6 +3,12 @@
     "darkMode": "Dark Mode",
     "readArticle": "Read Article",
     "selectLanguage": "Select Language",
-    "defaultError": "Some unexpected error occurred"
+    "defaultError": "Some unexpected error occurred",
+    "apple": "Apple",
+    "meta": "Meta",
+    "netflix": "Netflix",
+    "google": "Google",
+    "twitter": "Twitter",
+    "tesla": "Tesla"
 }
   
