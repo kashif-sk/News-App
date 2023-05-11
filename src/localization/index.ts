@@ -20,7 +20,6 @@ export const resources = {
 (async () => {
   let lng;
   const currentAppLang = await localStorage.get('APP_LANGUAGE');
-  useAppStore.setState({language: currentAppLang});
   if (currentAppLang?.length) {
     lng = currentAppLang;
   } else {
@@ -35,6 +34,7 @@ export const resources = {
     interpolation: {escapeValue: false},
     compatibilityJSON: 'v3',
   });
+  useAppStore.setState({language: lng});
 })();
 
 export async function handleLanguageChange({
