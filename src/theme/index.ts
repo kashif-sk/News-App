@@ -41,6 +41,16 @@ export const customTheme = extendTheme({
         }),
       },
     },
+    Box: {
+      variants: {
+        header: ({colorMode}: {colorMode: ColorMode}) => ({
+          backgroundColor:
+            colorMode === darkColorMode ? 'gray.900' : 'coolGray.50',
+          justifyContent: 'center',
+          shadowColor: colorMode !== darkColorMode ? 'gray.800' : 'coolGray.50',
+        }),
+      },
+    },
   },
 });
 
