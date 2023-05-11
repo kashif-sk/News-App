@@ -14,7 +14,7 @@ const Header = (): JSX.Element => {
   return (
     <Box variant="header" safeAreaTop shadow="2">
       <StatusBar
-        backgroundColor={isDarkMode ? 'gray.900' : 'coolGray.50'}
+        backgroundColor="transparent"
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
       />
       <Row justifyContent="space-between" alignItems="center" space="3" p="3">
