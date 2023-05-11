@@ -85,6 +85,11 @@ const useFetchArticles = ({topic}: useFetchArticlesParams) => {
     }
   }, [loading, loadingMoreItems]);
 
+  const onRefresh = () => {
+    setPage(1);
+    debouncedFetchArticles();
+  };
+
   return {
     loading,
     loadingMoreItems,
@@ -92,6 +97,7 @@ const useFetchArticles = ({topic}: useFetchArticlesParams) => {
     articlesData,
     isAllArticlesFetched,
     loadMoreArticles,
+    onRefresh,
   };
 };
 
