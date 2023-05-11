@@ -38,6 +38,7 @@ const ArticleList = (): JSX.Element => {
     articlesData,
     isAllArticlesFetched,
     loadMoreArticles,
+    onRefresh,
   } = useFetchArticles({topic: selectedTopic});
 
   const onPressReadArticle = (articleUrl: string | null) => {
@@ -88,7 +89,7 @@ const ArticleList = (): JSX.Element => {
         {loading ? (
           <Spinner size="lg" />
         ) : error !== '' ? (
-          <Error errMsg={error} />
+          <Error errMsg={error} onRetry={onRefresh} />
         ) : (
           <FlatList
             data={articlesData}
