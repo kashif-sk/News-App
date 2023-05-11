@@ -91,7 +91,7 @@ const ArticleList = (): JSX.Element => {
         ) : (
           <FlatList
             data={loading ? loadingData : articlesData}
-            padding={{base: 2, md: 3}}
+            py={{base: 2, md: 3}}
             key={numColumnsInList} //to update columns on the fly on web
             contentContainerStyle={styles.flatlistContentContainer}
             numColumns={numColumnsInList}
