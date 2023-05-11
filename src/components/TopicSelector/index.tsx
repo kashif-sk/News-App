@@ -4,6 +4,7 @@ import {topics} from '../../config';
 import {TopicSelectorProps} from './types';
 
 const TopicSelector = ({
+  disabled,
   selectedTopic,
   onTopicChange,
 }: TopicSelectorProps): JSX.Element => {
@@ -15,7 +16,9 @@ const TopicSelector = ({
           <Pressable
             key={topic}
             variant="chip"
-            onPress={() => onTopicChange(topic)}>
+            disabled={disabled}
+            onPress={() => onTopicChange(topic)}
+            opacity={disabled ? 0.5 : 1}>
             {isSelected && (
               <CheckIcon color="primary.800" _dark={{color: 'primary.300'}} />
             )}
