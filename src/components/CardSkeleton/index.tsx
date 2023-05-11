@@ -11,7 +11,7 @@ const CardSkeleton = (): JSX.Element => {
       w={{base: width - 16, md: '300px'}}
       backgroundColor="coolGray.50"
       _dark={{backgroundColor: 'gray.700'}}>
-      <Skeleton h="40" />
+      <Skeleton h={{base: '40', md: '56'}} />
       <Skeleton.Text p="4" py="6" />
       <Skeleton h="3" w="20" rounded="full" alignSelf="center" my="4" />
     </Box>
