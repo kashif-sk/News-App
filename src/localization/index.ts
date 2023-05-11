@@ -1,7 +1,8 @@
-import {I18nManager} from 'react-native';
+import {I18nManager, Platform} from 'react-native';
 
 import i18next from 'i18next';
 import {initReactI18next, useTranslation} from 'react-i18next';
+import RNRestart from 'react-native-restart';
 
 import {defaultLanguage, rtlLanguageCodes} from '../config';
 import useAppStore from '../store';
@@ -51,6 +52,10 @@ export async function handleLanguageChange({
         .then(() => {
           useAppStore.setState({language: lang});
           I18nManager.forceRTL(forceRTL);
+
+          if (Platform.OS !== 'web') {
+            RNRestart.Restart();
+          }
           onSuccess();
         })
         .catch(() => {
