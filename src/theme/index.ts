@@ -22,6 +22,11 @@ export const customTheme = extendTheme({
   components: {
     Text: {
       variants: {
+        text12_200: {
+          fontSize: 12,
+          fontWeight: '200',
+          color: 'gray.800',
+        },
         text14_400: ({colorMode}: {colorMode: ColorMode}) => ({
           fontSize: 14,
           fontWeight: '400',
