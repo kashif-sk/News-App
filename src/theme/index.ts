@@ -65,12 +65,15 @@ export const customTheme = extendTheme({
           flex: 1,
         }),
         card: ({colorMode}: {colorMode: ColorMode}) => ({
+          justifyContent: 'space-between',
           backgroundColor:
             colorMode === darkColorMode ? 'gray.800' : 'coolGray.100',
           shadowColor: colorMode !== darkColorMode ? 'gray.800' : 'coolGray.50',
           overflow: 'hidden',
           borderColor: colorMode === darkColorMode ? 'gray.700' : 'gray.300',
           borderWidth: 0.5,
+          rounded: 'lg',
+          shadow: '2',
         }),
       },
     },

@@ -19,9 +19,6 @@ const Card = ({
   return (
     <Box
       variant="card"
-      shadow="2"
-      rounded="lg"
-      justifyContent="space-between"
       margin={{base: 2, md: 3}}
       w={{base: width - 16, md: '300px'}}>
       <Box>
