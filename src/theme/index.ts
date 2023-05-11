@@ -74,6 +74,20 @@ export const customTheme = extendTheme({
         }),
       },
     },
+    Pressable: {
+      variants: {
+        chip: ({colorMode}: {colorMode: ColorMode}) => ({
+          borderColor:
+            colorMode === darkColorMode ? 'primary.300' : 'primary.800',
+          flexDirection: 'row',
+          borderRadius: 25,
+          borderWidth: 0.5,
+          p: '2',
+          m: '1',
+          alignItems: 'center',
+        }),
+      },
+    },
   },
 });
 
