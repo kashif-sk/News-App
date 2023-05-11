@@ -21,6 +21,10 @@ const useFetchArticles = ({topic}: useFetchArticlesParams) => {
   const [loadingMoreItems, setLoadingMoreItems] = useState(false);
   const [isAllArticlesFetched, setIsAllArticlesFetched] = useState(false);
 
+  useEffect(() => {
+    setPage(1);
+  }, [language, topic]);
+
   const fetchArticles = useCallback(async () => {
     try {
       setError('');
