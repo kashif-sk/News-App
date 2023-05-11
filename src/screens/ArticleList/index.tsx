@@ -1,22 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Box, FlatList, Spinner, useBreakpointValue} from 'native-base';
 import useFetchArticles from '../../api/useFetchArticles';
 import Card from '../../components/Card';
 import Error from '../../components/Error';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import Header from '../../components/Header';
+import TopicSelector from '../../components/TopicSelector';
+import {topics} from '../../config';
 
 const ArticleList = (): JSX.Element => {
+  const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(
+    topics[0],
+  );
+
   const numColumnsInList = useBreakpointValue({base: 1, md: 2, lg: 3, xl: 4});
 
   const {loading, error, articlesData} = useFetchArticles({
-    topic: 'Meta',
+    topic: selectedTopic,
   });
 
   return (
     <Box variant="container">
       <ErrorBoundary>
         <Header />
+        {!loading && (
+          <TopicSelector
+            selectedTopic={selectedTopic}
+            onTopicChange={setSelectedTopic}
+          />
+        )}
 
         {loading ? (
           <Spinner size="lg" />
