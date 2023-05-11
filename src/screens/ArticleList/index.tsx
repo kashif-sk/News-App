@@ -1,17 +1,24 @@
 import React, {useState} from 'react';
-import {Box, FlatList, Spinner, useBreakpointValue} from 'native-base';
+import {Box, FlatList, Spinner, Toast, useBreakpointValue} from 'native-base';
 import useFetchArticles from '../../api/useFetchArticles';
+import ArticleDetailsModal from '../../components/ArticleDetailsModal';
 import Card from '../../components/Card';
 import Error from '../../components/Error';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import Header from '../../components/Header';
 import TopicSelector from '../../components/TopicSelector';
 import {topics} from '../../config';
+import {useAppTranslation} from '../../localization';
 import styles from './styles';
 
 const ArticleList = (): JSX.Element => {
+  const {t} = useAppTranslation();
+
   const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(
     topics[0],
+  );
+  const [selectedArticleUrl, setSelectedArticleUrl] = useState<string | null>(
+    null,
   );
 
   const numColumnsInList = useBreakpointValue({base: 1, md: 2, lg: 3, xl: 4});
@@ -19,6 +26,15 @@ const ArticleList = (): JSX.Element => {
   const {loading, error, articlesData} = useFetchArticles({
     topic: selectedTopic,
   });
+
+  const onPressReadArticle = (articleUrl: string | null) => {
+    if (articleUrl == null) {
+      Toast.show({title: t('defaultError')});
+    }
+    setSelectedArticleUrl(articleUrl);
+  };
+
+  const closeArticleDetailsModal = () => setSelectedArticleUrl(null);
 
   return (
     <Box variant="container">
@@ -50,10 +66,16 @@ const ArticleList = (): JSX.Element => {
                 title={item.title}
                 description={item.description}
                 articleUrl={item.url}
+                readArticle={onPressReadArticle}
               />
             )}
           />
         )}
+        <ArticleDetailsModal
+          visible={selectedArticleUrl !== null}
+          onClose={closeArticleDetailsModal}
+          url={selectedArticleUrl}
+        />
       </ErrorBoundary>
     </Box>
   );
