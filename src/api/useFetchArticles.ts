@@ -14,7 +14,7 @@ const useFetchArticles = ({topic}: useFetchArticlesParams) => {
   const {language} = useAppStore();
   const {t} = useAppTranslation();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [articlesData, setArticlesData] = useState<ArticlesData>([]);
   const [page, setPage] = useState(1);
