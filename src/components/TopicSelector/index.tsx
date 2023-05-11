@@ -1,7 +1,9 @@
-import {Pressable, CheckIcon, Row, Text} from 'native-base';
+import {Pressable, CheckIcon, Text} from 'native-base';
 import React from 'react';
+import {Platform} from 'react-native';
 import {topics} from '../../config';
-import {useAppTranslation} from '../../localization';
+import {isRTL, useAppTranslation} from '../../localization';
+import RtlAwareRow from '../RtlAwareRow';
 import {TopicSelectorProps} from './types';
 
 const TopicSelector = ({
@@ -10,8 +12,9 @@ const TopicSelector = ({
   onTopicChange,
 }: TopicSelectorProps): JSX.Element => {
   const {t} = useAppTranslation();
+
   return (
-    <Row flexWrap="wrap" p="2" pb="0">
+    <RtlAwareRow flexWrap="wrap" p="2" pb="0">
       {topics.map(topic => {
         const isSelected = selectedTopic === topic.key;
         return (
@@ -20,7 +23,10 @@ const TopicSelector = ({
             variant="chip"
             disabled={disabled}
             onPress={() => onTopicChange(topic.key)}
-            opacity={disabled ? 0.5 : 1}>
+            opacity={disabled ? 0.5 : 1}
+            flexDirection={
+              Platform.OS === 'web' && isRTL() ? 'row-reverse' : 'row'
+            }>
             {isSelected && (
               <CheckIcon color="primary.800" _dark={{color: 'primary.300'}} />
             )}
@@ -30,7 +36,7 @@ const TopicSelector = ({
           </Pressable>
         );
       })}
-    </Row>
+    </RtlAwareRow>
   );
 };
 
