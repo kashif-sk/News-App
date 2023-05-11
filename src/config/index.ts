@@ -13,10 +13,10 @@ export const lightColorMode = 'light';
 export const darkColorMode = 'dark';
 
 export const topics = [
-  'Apple',
-  'Meta',
-  'Netflix',
-  'Google',
-  'Twitter',
-  'Tesla',
+  {key: 'Apple', labelKey: 'apple'},
+  {key: 'Meta', labelKey: 'meta'},
+  {key: 'Netflix', labelKey: 'netflix'},
+  {key: 'Google', labelKey: 'google'},
+  {key: 'Twitter', labelKey: 'twitter'},
+  {key: 'Tesla', labelKey: 'tesla'},
 ] as const;
