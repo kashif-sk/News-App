@@ -30,6 +30,7 @@ const useFetchArticles = ({topic}: useFetchArticlesParams) => {
       setError('');
       if (page === 1) {
         setLoading(true);
+        setArticlesData([]);
       }
       const todaysDate = new Date().getDate();
       const fromDate = new Date(
