@@ -107,4 +107,4 @@ const useFetchArticles = ({topic}: useFetchArticlesParams) => {
 
 export default useFetchArticles;
 
-type useFetchArticlesParams = {topic: (typeof topics)[number]};
+type useFetchArticlesParams = {topic: (typeof topics)[number]['key']};

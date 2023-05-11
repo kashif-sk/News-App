@@ -23,9 +23,9 @@ import styles from './styles';
 const ArticleList = (): JSX.Element => {
   const {t} = useAppTranslation();
 
-  const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(
-    topics[0],
-  );
+  const [selectedTopic, setSelectedTopic] = useState<
+    (typeof topics)[number]['key']
+  >(topics[0].key);
   const [selectedArticleUrl, setSelectedArticleUrl] = useState<string | null>(
     null,
   );
