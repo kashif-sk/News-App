@@ -49,6 +49,11 @@ export const customTheme = extendTheme({
           justifyContent: 'center',
           shadowColor: colorMode !== darkColorMode ? 'gray.800' : 'coolGray.50',
         }),
+        container: ({colorMode}: {colorMode: ColorMode}) => ({
+          backgroundColor:
+            colorMode === darkColorMode ? 'gray.700' : 'coolGray.50',
+          flex: 1,
+        }),
       },
     },
   },
