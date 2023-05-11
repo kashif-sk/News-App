@@ -80,12 +80,11 @@ const ArticleList = (): JSX.Element => {
     <Box variant="container">
       <ErrorBoundary>
         <Header />
-        {!loading && (
-          <TopicSelector
-            selectedTopic={selectedTopic}
-            onTopicChange={setSelectedTopic}
-          />
-        )}
+        <TopicSelector
+          selectedTopic={selectedTopic}
+          onTopicChange={setSelectedTopic}
+          disabled={loading}
+        />
 
         {error !== '' ? (
           <Error errMsg={error} onRetry={onRefresh} />
