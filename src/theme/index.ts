@@ -27,16 +27,19 @@ export const customTheme = extendTheme({
           fontSize: 12,
           fontWeight: '200',
           color: 'gray.800',
+          textAlign: 'left',
         },
         text14_200: ({colorMode}: {colorMode: ColorMode}) => ({
           fontSize: 14,
           fontWeight: '300',
           color: colorMode === darkColorMode ? 'coolGray.100' : 'gray.800',
+          textAlign: 'left',
         }),
         text14_400: ({colorMode}: {colorMode: ColorMode}) => ({
           fontSize: 14,
           fontWeight: '400',
           color: colorMode === darkColorMode ? 'coolGray.100' : 'gray.800',
+          textAlign: 'left',
         }),
         text16_700: ({colorMode}: {colorMode: ColorMode}) => ({
           fontSize: 16,

@@ -34,7 +34,7 @@ const Card = ({
           <Text variant="text12_200">
             {dayjs(publishedDate).format('DD MMM, YYYY')}
           </Text>
-          <Heading size="sm" fontWeight="medium" noOfLines={2}>
+          <Heading size="sm" fontWeight="medium" textAlign="left" noOfLines={2}>
             {title}
           </Heading>
           <Text
