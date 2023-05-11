@@ -18,6 +18,7 @@ export const customTheme = extendTheme({
       800: '#27272a',
       900: '#18181b',
     },
+    transparent: 'transparent',
   },
   components: {
     Text: {
