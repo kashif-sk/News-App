@@ -81,11 +81,13 @@ const ArticleList = (): JSX.Element => {
             )}
           />
         )}
-        <ArticleDetailsModal
-          visible={selectedArticleUrl !== null}
-          onClose={closeArticleDetailsModal}
-          url={selectedArticleUrl}
-        />
+        {Platform.OS === 'web' ? null : (
+          <ArticleDetailsModal
+            visible={selectedArticleUrl !== null}
+            onClose={closeArticleDetailsModal}
+            url={selectedArticleUrl}
+          />
+        )}
       </ErrorBoundary>
     </Box>
   );
