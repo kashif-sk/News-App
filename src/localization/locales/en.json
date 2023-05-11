@@ -1,5 +1,7 @@
 {
     "appName": "News App",
+    "darkMode": "Dark Mode",
+    "selectLanguage": "Select Language",
     "defaultError": "Some unexpected error occurred"
 }
   

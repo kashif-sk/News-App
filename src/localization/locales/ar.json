@@ -1,4 +1,6 @@
 {
   "appName": "تطبيق الأخبار",
+  "darkMode": "مظهر داكن",
+  "selectLanguage": "اختار اللغة",
   "defaultError": "حدث خطأ غير متوقع"
 }
