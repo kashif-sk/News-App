@@ -8,7 +8,7 @@ const Error = ({errMsg, onRetry}: ErrorProps): JSX.Element => {
   return (
     <Center flex={1}>
       <Text variant="text32_700">{errMsg || t('defaultError')}</Text>
-      {onRetry && <Button onPress={onRetry}>Retry</Button>}
+      {onRetry && <Button onPress={onRetry}>{t('retry')}</Button>}
     </Center>
   );
 };
