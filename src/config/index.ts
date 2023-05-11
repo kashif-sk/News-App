@@ -11,3 +11,12 @@ export const defaultLanguage: (typeof supportedLanguages)[number]['languageCode'
 
 export const lightColorMode = 'light';
 export const darkColorMode = 'dark';
+
+export const topics = [
+  'Apple',
+  'Meta',
+  'Netflix',
+  'Google',
+  'Twitter',
+  'Tesla',
+] as const;
