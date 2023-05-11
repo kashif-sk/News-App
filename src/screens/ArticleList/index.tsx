@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 import {Linking, Platform} from 'react-native';
-import {Box, FlatList, Spinner, Toast, useBreakpointValue} from 'native-base';
+import {
+  Box,
+  Button,
+  FlatList,
+  Spinner,
+  Toast,
+  useBreakpointValue,
+} from 'native-base';
 import useFetchArticles from '../../api/useFetchArticles';
 import ArticleDetailsModal from '../../components/ArticleDetailsModal';
 import Card from '../../components/Card';
@@ -24,9 +31,14 @@ const ArticleList = (): JSX.Element => {
 
   const numColumnsInList = useBreakpointValue({base: 1, md: 2, lg: 3, xl: 4});
 
-  const {loading, error, articlesData} = useFetchArticles({
-    topic: selectedTopic,
-  });
+  const {
+    loading,
+    loadingMoreItems,
+    error,
+    articlesData,
+    isAllArticlesFetched,
+    loadMoreArticles,
+  } = useFetchArticles({topic: selectedTopic});
 
   const onPressReadArticle = (articleUrl: string | null) => {
     try {
@@ -45,6 +57,22 @@ const ArticleList = (): JSX.Element => {
   };
 
   const closeArticleDetailsModal = () => setSelectedArticleUrl(null);
+
+  const _renderListFooter = () => {
+    if (isAllArticlesFetched || articlesData.length === 0) {
+      return null;
+    }
+    if (Platform.OS === 'web') {
+      return (
+        <Button isLoading={loadingMoreItems} onPress={loadMoreArticles}>
+          Load More
+        </Button>
+      );
+    } else if (loadingMoreItems) {
+      return <Spinner size="lg" />;
+    }
+    return null;
+  };
 
   return (
     <Box variant="container">
@@ -79,6 +107,9 @@ const ArticleList = (): JSX.Element => {
                 readArticle={onPressReadArticle}
               />
             )}
+            ListFooterComponent={_renderListFooter}
+            onEndReached={isAllArticlesFetched ? undefined : loadMoreArticles}
+            onEndReachedThreshold={0.1}
           />
         )}
         {Platform.OS === 'web' ? null : (
