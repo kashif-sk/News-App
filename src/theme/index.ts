@@ -6,6 +6,9 @@ export const customTheme = extendTheme({
   colors: {
     primary: {
       300: '#6ee7b7',
+      400: '#6ee7b7',
+      500: '#6ee7b7',
+      600: '#065f46',
       800: '#065f46',
     },
     coolGray: {
