@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Linking, Platform} from 'react-native';
 import {Box, FlatList, Spinner, Toast, useBreakpointValue} from 'native-base';
 import useFetchArticles from '../../api/useFetchArticles';
 import ArticleDetailsModal from '../../components/ArticleDetailsModal';
@@ -28,10 +29,19 @@ const ArticleList = (): JSX.Element => {
   });
 
   const onPressReadArticle = (articleUrl: string | null) => {
-    if (articleUrl == null) {
+    try {
+      if (articleUrl == null) {
+        Toast.show({title: t('defaultError')});
+        return;
+      }
+      if (Platform.OS === 'web') {
+        Linking.openURL(articleUrl);
+        return;
+      }
+      setSelectedArticleUrl(articleUrl);
+    } catch (e) {
       Toast.show({title: t('defaultError')});
     }
-    setSelectedArticleUrl(articleUrl);
   };
 
   const closeArticleDetailsModal = () => setSelectedArticleUrl(null);
