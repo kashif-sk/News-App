@@ -1,7 +1,7 @@
 {
   "name": "newsapp",
   "version": "0.0.1",
-  "homepage": "https://kashif-sk.github.io/News-App",
+  "homepage": "https://news-app-5qot.vercel.app",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
