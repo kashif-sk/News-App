@@ -20,3 +20,5 @@ export const topics = [
   {key: 'Twitter', labelKey: 'twitter'},
   {key: 'Tesla', labelKey: 'tesla'},
 ] as const;
+
+export const apiToken = '419ec6454f4e4c508b0d0f285f365111';
