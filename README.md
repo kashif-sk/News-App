@@ -25,6 +25,17 @@ News App built in React Native to support Android, iOS &amp; Web.
 ### To run the app on Web
 `yarn web`
 
+## Output
+**Web Sample**
+
+![web_sample](https://github.com/kashif-sk/News-App/assets/61899049/6aeaf51b-731c-443f-add6-365b4af91cad)
+
+
+**Mobile Sample**
+
+![mobile_sample](https://github.com/kashif-sk/News-App/assets/61899049/b035f3e1-86c7-4305-8af8-3b0e78073437)
+
+
 
 ## About the App
 
