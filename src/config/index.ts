@@ -21,4 +21,4 @@ export const topics = [
   {key: 'Tesla', labelKey: 'tesla'},
 ] as const;
 
-export const apiToken = '419ec6454f4e4c508b0d0f285f365111';
+export const apiToken = '2cef01f8f54a482c80787dbf75440c0f';
