@@ -1,9 +1,9 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import {useWindowDimensions} from 'react-native';
+import {Platform, useWindowDimensions} from 'react-native';
 import {Box, Button, Heading, Image, Stack, Text} from 'native-base';
 import images from '../../assets';
-import {useAppTranslation} from '../../localization';
+import {isRTL, useAppTranslation} from '../../localization';
 import {CardProps} from './types';
 
 const Card = ({
@@ -16,6 +16,9 @@ const Card = ({
 }: CardProps): JSX.Element => {
   const {width} = useWindowDimensions();
   const {t} = useAppTranslation();
+
+  const textAlign =
+    Platform.OS === 'web' ? (isRTL() ? 'right' : 'left') : 'left';
   return (
     <Box
       variant="card"
@@ -31,14 +34,19 @@ const Card = ({
           loadingIndicatorSource={images.news}
         />
         <Stack space="2" p="4" pb="2">
-          <Text variant="text12_200">
+          <Text variant="text12_200" textAlign={textAlign}>
             {dayjs(publishedDate).format('DD MMM, YYYY')}
           </Text>
-          <Heading size="sm" fontWeight="medium" textAlign="left" noOfLines={2}>
+          <Heading
+            size="sm"
+            fontWeight="medium"
+            textAlign={textAlign}
+            noOfLines={2}>
             {title}
           </Heading>
           <Text
             variant="text14_200"
+            textAlign={textAlign}
             _dark={{color: 'coolGray.50'}}
             isTruncated
             noOfLines={3}>
